@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">cargaCV</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">Datos</string>
+    <string name="tab_text_2">Experiencia</string>
+    <string name="tab_text_3">Conocimientos</string>
+    <string name="tab_text_4">Cursos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

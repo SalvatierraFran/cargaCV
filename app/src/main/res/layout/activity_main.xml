@@ -13,12 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
+        android:textColor="@color/Blanco"
         android:textSize="40dp"
         android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,11 +31,10 @@
             android:text="IS: "/>
 
         <EditText
+            android:id="@+id/is_et"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/Blanco"
-            android:textColor="@color/Blanco"/>
+            android:layout_marginRight="10dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -50,11 +51,46 @@
             android:text="Password: "/>
 
         <EditText
+            android:id="@+id/pass_et"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginRight="10dp"
-            android:inputType="textPassword"
-            android:background="@color/Blanco"
-            android:textColor="@color/Blanco"/>
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/Login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/Registro_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/Image_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login"/>
+
     </LinearLayout>
 </LinearLayout>
