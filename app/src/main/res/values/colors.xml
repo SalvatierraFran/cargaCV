@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="RojoHome">#FB0303</color>
     <color name="Blanco">#FFFFFF</color>
+    <color name="Verde">#0AF514</color>
+    <color name="Azul">#020AFC</color>
+    <color name="Amarillo">#E2FA01</color>
 </resources>

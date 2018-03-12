@@ -21,6 +21,8 @@ public class CVitaesDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CredencialContract.CredencialEntry.CREAR_TABLE_CREDENCIAL);
+        db.execSQL(DatosContract.DatosEntry.CREAR_TABLE_DATOS);
+        db.execSQL(ExperienciaContract.ExperienciaEntry.CREAR_TABLE_EXP);
     }
 
     @Override
