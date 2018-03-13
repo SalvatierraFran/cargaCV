@@ -23,6 +23,8 @@ public class CVitaesDbHelper extends SQLiteOpenHelper {
         db.execSQL(CredencialContract.CredencialEntry.CREAR_TABLE_CREDENCIAL);
         db.execSQL(DatosContract.DatosEntry.CREAR_TABLE_DATOS);
         db.execSQL(ExperienciaContract.ExperienciaEntry.CREAR_TABLE_EXP);
+        db.execSQL(ConocContract.ConocEntry.CREAR_TABLE_CONOC);
+        db.execSQL(CursoContract.CursoEntry.CREAR_TABLE_CURSO);
     }
 
     @Override

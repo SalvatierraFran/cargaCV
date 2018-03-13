@@ -72,28 +72,30 @@ public class DatosFragment extends Fragment {
             }while(c.moveToNext());
         }
 
-        EditText nombre_et = (EditText)v.findViewById(R.id.nombre_etdatos);
+        if(result) {
 
-        EditText apellido_et = (EditText)v.findViewById(R.id.apellido_etdatos);
+            EditText nombre_et = (EditText) v.findViewById(R.id.nombre_etdatos);
 
-        EditText edad_et = (EditText)v.findViewById(R.id.edad_etdatos);
+            EditText apellido_et = (EditText) v.findViewById(R.id.apellido_etdatos);
 
-        EditText nacio_et = (EditText)v.findViewById(R.id.nacio_etdatos);
+            EditText edad_et = (EditText) v.findViewById(R.id.edad_etdatos);
 
-        EditText pcia_et = (EditText)v.findViewById(R.id.pcia_etdatos);
+            EditText nacio_et = (EditText) v.findViewById(R.id.nacio_etdatos);
 
-        EditText domi_et = (EditText)v.findViewById(R.id.domi_etdatos);
+            EditText pcia_et = (EditText) v.findViewById(R.id.pcia_etdatos);
 
-        EditText ecivil_et = (EditText)v.findViewById(R.id.ecivil_etdatos);
+            EditText domi_et = (EditText) v.findViewById(R.id.domi_etdatos);
 
-        nombre_et.setText(auxDatos.getNombre().toString());
-        apellido_et.setText(auxDatos.getApellido().toString());
-        edad_et.setText(auxDatos.getEdad().toString());
-        nacio_et.setText(auxDatos.getNacionalidad().toString());
-        pcia_et.setText(auxDatos.getProvincia().toString());
-        domi_et.setText(auxDatos.getDomicilio().toString());
-        ecivil_et.setText(auxDatos.getEcivil().toString());
+            EditText ecivil_et = (EditText) v.findViewById(R.id.ecivil_etdatos);
 
+            nombre_et.setText(auxDatos.getNombre().toString());
+            apellido_et.setText(auxDatos.getApellido().toString());
+            edad_et.setText(auxDatos.getEdad().toString());
+            nacio_et.setText(auxDatos.getNacionalidad().toString());
+            pcia_et.setText(auxDatos.getProvincia().toString());
+            domi_et.setText(auxDatos.getDomicilio().toString());
+            ecivil_et.setText(auxDatos.getEcivil().toString());
+        }
         return result;
     }
 

@@ -26,6 +26,7 @@
             android:text="Nombre: "/>
 
         <EditText
+            android:id="@+id/nombre_etconoc"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:background="@color/Blanco"/>
@@ -33,7 +34,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp">
@@ -43,11 +44,26 @@
             android:layout_height="wrap_content"
             android:text="Nivel: "/>
 
-        <EditText
+        <!--<EditText
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@color/Blanco"/>
+            android:background="@color/Blanco"/>-->
+
+        <Spinner
+            android:id="@+id/spinner_conoc"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/guardar_btnconoc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:text="Guardar" />
+
+
 
 </LinearLayout>
