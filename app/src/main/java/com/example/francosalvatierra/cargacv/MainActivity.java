@@ -115,14 +115,21 @@ public class MainActivity extends AppCompatActivity {
 
             SQLiteDatabase db = conn.getWritableDatabase();
 
-            ContentValues values = new ContentValues();
+            Cursor c = db.rawQuery("SELECT * FROM Credencial WHERE name = '" + is + "'", null);
 
-            values.put(CredencialContract.CredencialEntry.CAMPO_IS, is);
-            values.put(CredencialContract.CredencialEntry.CAMPO_PASS, pass);
+            if(c.moveToFirst()) {
+                Toast.makeText(this.getApplicationContext(), "El usuario ya existe", Toast.LENGTH_LONG).show();
+            }
+            else{
+                ContentValues values = new ContentValues();
 
-            Long idResultante = db.insert(CredencialContract.CredencialEntry.TABLE_NAME, CredencialContract.CredencialEntry._ID, values);
+                values.put(CredencialContract.CredencialEntry.CAMPO_IS, is);
+                values.put(CredencialContract.CredencialEntry.CAMPO_PASS, pass);
 
-            Toast.makeText(this.getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
+                Long idResultante = db.insert(CredencialContract.CredencialEntry.TABLE_NAME, CredencialContract.CredencialEntry._ID, values);
+
+                Toast.makeText(this.getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
+            }
         }
         else{
             Toast.makeText(this.getApplicationContext(), "Ningún campo debe estar incompleto.", Toast.LENGTH_SHORT).show();
