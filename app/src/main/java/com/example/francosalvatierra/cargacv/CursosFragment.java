@@ -4,14 +4,18 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.francosalvatierra.cargacv.DataModel.CVitaesDbHelper;
@@ -48,6 +52,16 @@ public class CursosFragment extends Fragment {
             }
         });
 
+        final LinearLayout LLMain = v.findViewById(R.id.contenedorCursos);
+
+        FloatingActionButton fab = (FloatingActionButton)v.findViewById(R.id.agregar_cursos);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                crearBloque(LLMain);
+            }
+        });
+
         return v;
     }
 
@@ -71,13 +85,11 @@ public class CursosFragment extends Fragment {
         if(result)
         {
             for(Integer i =0 ; i < listaCursos.size(); i++) {
-                /*EditText nombre_et = (EditText) v.findViewById(R.id.nombre_etcurso);
+                EditText nombre_et = (EditText) v.findViewById(R.id.nombre_etcurso);
                 EditText detalle_et = (EditText) v.findViewById(R.id.detalle_etcurso);
 
                 nombre_et.setText(auxCurso.getNombre().toString());
-                detalle_et.setText(auxCurso.getDetalle().toString());*/
-
-                EditText et = new EditText(getContext().getApplicationContext());
+                detalle_et.setText(auxCurso.getDetalle().toString());
 
             }
         }
@@ -105,16 +117,41 @@ public class CursosFragment extends Fragment {
         Toast.makeText(this.getActivity().getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
     }
 
-    class linear{
+    public void crearBloque(LinearLayout LLmain)
+    {
+        LinearLayout nombreLL = new LinearLayout(getContext().getApplicationContext());
+        nombreLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
 
-        public Integer cod;
-        public String nombre;
-        public String detalle;
+        LinearLayout detalleLL = new LinearLayout(getContext().getApplicationContext());
+        detalleLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
 
-        public linear(Integer cod, String nombre, String detalle) {
-            this.cod = cod;
-            this.nombre = nombre;
-            this.detalle = detalle;
-        }
+        TextView nombre_tv = new TextView(getContext().getApplicationContext());
+        nombre_tv.setText("Nombre: ");
+        nombre_tv.setTextColor(Color.BLACK);
+
+        EditText nombre_et = new EditText(getContext().getApplicationContext());
+        nombre_et.setBackgroundColor(Color.WHITE);
+        nombre_et.setTextColor(Color.BLACK);
+        nombre_et.setHeight(80);
+        nombre_et.setWidth(600);
+
+        nombreLL.addView(nombre_tv);
+        nombreLL.addView(nombre_et);
+
+        TextView detalle_tv = new TextView(getContext().getApplicationContext());
+        detalle_tv.setText("Detalle: ");
+        detalle_tv.setTextColor(Color.BLACK);
+
+        EditText detalle_et = new EditText(getContext().getApplicationContext());
+        detalle_et.setBackgroundColor(Color.WHITE);
+        detalle_et.setTextColor(Color.BLACK);
+        detalle_et.setHeight(80);
+        detalle_et.setWidth(600);
+
+        detalleLL.addView(detalle_tv);
+        detalleLL.addView(detalle_et);
+
+        LLmain.addView(nombreLL);
+        LLmain.addView(detalleLL);
     }
 }
