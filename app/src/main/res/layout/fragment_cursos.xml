@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/Celeste"
+    android:id="@+id/contenedorCursos"
     tools:context="com.example.francosalvatierra.cargacv.CursosFragment">
 
     <TextView

@@ -2,6 +2,7 @@ package com.example.francosalvatierra.cargacv;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,11 +21,16 @@ import android.widget.Toast;
 import com.example.francosalvatierra.cargacv.DataModel.CVitaesDbHelper;
 import com.example.francosalvatierra.cargacv.DataModel.ConocContract;
 import com.example.francosalvatierra.cargacv.DataModel.DatosContract;
+import com.example.francosalvatierra.cargacv.Entities.Conocimientos;
+
+import java.util.ArrayList;
 
 public class ConocimFragment extends Fragment {
 
     Spinner sp_niveles;
     String[] items;
+    ArrayList<Conocimientos> listaConoc = new ArrayList<>();
+    Conocimientos auxConoc;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,6 +62,11 @@ public class ConocimFragment extends Fragment {
             }
         });
 
+        if(comprobar(idCred, v))
+        {
+            ((Button)v.findViewById(R.id.guardar_btnconoc)).setVisibility(View.INVISIBLE);
+        }
+
         ((Button)v.findViewById(R.id.guardar_btnconoc)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +75,37 @@ public class ConocimFragment extends Fragment {
         });
 
         return v;
+    }
+
+    public boolean comprobar(Integer idCred, View v)
+    {
+        Boolean result = false;
+
+        CVitaesDbHelper conn = new CVitaesDbHelper(this.getContext(), "CVitaesDB", null, CVitaesDbHelper.DATABASE_VERSION);
+
+        SQLiteDatabase db = conn.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Conocimientos WHERE IdCred = " + idCred, null);
+
+        if(c.moveToFirst())
+        {
+            auxConoc = new Conocimientos(c.getInt(0), c.getString(1), c.getString(2));
+            listaConoc.add(auxConoc);
+            result = true;
+        }while(c.moveToNext());
+
+        if(result)
+        {
+            TextView nombre_et = (TextView)v.findViewById(R.id.nombre_etconoc);
+            Spinner nivel_sp = (Spinner)v.findViewById(R.id.spinner_conoc);
+
+            for(Integer i = 0; i < listaConoc.size(); i++)
+            {
+                nombre_et.setText(listaConoc.get(i).getNombre().toString());
+            }
+        }
+
+        return result;
     }
 
     public void guardarConoc(Integer idCred)
