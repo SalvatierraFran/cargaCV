@@ -29,6 +29,20 @@ public class CursosFragment extends Fragment {
 
     Cursos auxCurso;
     ArrayList<Cursos> listaCursos = new ArrayList<>();
+    Integer cont = 0;
+
+    TextView nombre_tv;
+    EditText nombre_et;
+    TextView nombre2_tv;
+    EditText nombre2_et;
+    TextView detalle_tv;
+    EditText detalle_et;
+    TextView detalle2_tv;
+    EditText detalle2_et;
+    TextView nombre3_tv;
+    EditText nombre3_et;
+    TextView detalle3_tv;
+    EditText detalle3_et;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,7 +104,6 @@ public class CursosFragment extends Fragment {
 
                 nombre_et.setText(auxCurso.getNombre().toString());
                 detalle_et.setText(auxCurso.getDetalle().toString());
-
             }
         }
 
@@ -119,39 +132,126 @@ public class CursosFragment extends Fragment {
 
     public void crearBloque(LinearLayout LLmain)
     {
-        LinearLayout nombreLL = new LinearLayout(getContext().getApplicationContext());
-        nombreLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
+        if(cont == 0) {
+            LinearLayout nombreLL = new LinearLayout(getContext().getApplicationContext());
+            nombreLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
 
-        LinearLayout detalleLL = new LinearLayout(getContext().getApplicationContext());
-        detalleLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
+            LinearLayout detalleLL = new LinearLayout(getContext().getApplicationContext());
+            detalleLL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
 
-        TextView nombre_tv = new TextView(getContext().getApplicationContext());
-        nombre_tv.setText("Nombre: ");
-        nombre_tv.setTextColor(Color.BLACK);
+            nombre_tv = new TextView(getContext().getApplicationContext());
+            nombre_tv.setText("Nombre: ");
+            nombre_tv.setTextColor(Color.BLACK);
 
-        EditText nombre_et = new EditText(getContext().getApplicationContext());
-        nombre_et.setBackgroundColor(Color.WHITE);
-        nombre_et.setTextColor(Color.BLACK);
-        nombre_et.setHeight(80);
-        nombre_et.setWidth(600);
+            nombre_et = new EditText(getContext().getApplicationContext());
+            nombre_et.setBackgroundColor(Color.WHITE);
+            nombre_et.setTextColor(Color.BLACK);
+            nombre_et.setHeight(80);
+            nombre_et.setWidth(600);
 
-        nombreLL.addView(nombre_tv);
-        nombreLL.addView(nombre_et);
+            nombreLL.addView(nombre_tv);
+            nombreLL.addView(nombre_et);
 
-        TextView detalle_tv = new TextView(getContext().getApplicationContext());
-        detalle_tv.setText("Detalle: ");
-        detalle_tv.setTextColor(Color.BLACK);
+            detalle_tv = new TextView(getContext().getApplicationContext());
+            detalle_tv.setText("Detalle: ");
+            detalle_tv.setTextColor(Color.BLACK);
 
-        EditText detalle_et = new EditText(getContext().getApplicationContext());
-        detalle_et.setBackgroundColor(Color.WHITE);
-        detalle_et.setTextColor(Color.BLACK);
-        detalle_et.setHeight(80);
-        detalle_et.setWidth(600);
+            detalle_et = new EditText(getContext().getApplicationContext());
+            detalle_et.setBackgroundColor(Color.WHITE);
+            detalle_et.setTextColor(Color.BLACK);
+            detalle_et.setHeight(80);
+            detalle_et.setWidth(600);
 
-        detalleLL.addView(detalle_tv);
-        detalleLL.addView(detalle_et);
+            detalleLL.addView(detalle_tv);
+            detalleLL.addView(detalle_et);
 
-        LLmain.addView(nombreLL);
-        LLmain.addView(detalleLL);
+            LLmain.addView(nombreLL);
+            LLmain.addView(detalleLL);
+
+            cont++;
+        }
+        else if (cont == 1)
+        {
+            LinearLayout nombre2LL = new LinearLayout(getContext().getApplicationContext());
+            nombre2LL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER );
+
+            LinearLayout detalle2LL = new LinearLayout(getContext().getApplicationContext());
+            detalle2LL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
+
+            nombre2_tv = new TextView(getContext().getApplicationContext());
+            nombre2_tv.setTextColor(Color.BLACK);
+            nombre2_tv.setText("Nombre: ");
+
+            nombre2_et = new EditText(getContext().getApplicationContext());
+            nombre2_et.setBackgroundColor(Color.WHITE);
+            nombre2_et.setTextColor(Color.BLACK);
+            nombre2_et.setHeight(80);
+            nombre2_et.setWidth(600);
+
+            nombre2LL.addView(nombre2_tv);
+            nombre2LL.addView(nombre2_et);
+
+            detalle2_tv = new TextView(getContext().getApplicationContext());
+            detalle2_tv.setText("Detalle: ");
+            detalle2_tv.setTextColor(Color.BLACK);
+
+            detalle2_et = new EditText(getContext().getApplicationContext());
+            detalle2_et.setBackgroundColor(Color.WHITE);
+            detalle2_et.setTextColor(Color.BLACK);
+            detalle2_et.setHeight(80);
+            detalle2_et.setWidth(600);
+
+            detalle2LL.addView(detalle2_tv);
+            detalle2LL.addView(detalle2_et);
+
+            LLmain.addView(nombre2LL);
+            LLmain.addView(detalle2LL);
+
+            cont++;
+
+        }
+        else if (cont == 2)
+        {
+            LinearLayout nombre3LL = new LinearLayout(getContext().getApplicationContext());
+            nombre3LL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER );
+
+            LinearLayout detalle3LL = new LinearLayout(getContext().getApplicationContext());
+            detalle3LL.setVerticalGravity(View.TEXT_ALIGNMENT_CENTER);
+
+            nombre3_tv = new TextView(getContext().getApplicationContext());
+            nombre3_tv.setTextColor(Color.BLACK);
+            nombre3_tv.setText("Nombre: ");
+
+            nombre3_et = new EditText(getContext().getApplicationContext());
+            nombre3_et.setBackgroundColor(Color.WHITE);
+            nombre3_et.setTextColor(Color.BLACK);
+            nombre3_et.setHeight(80);
+            nombre3_et.setWidth(600);
+
+            nombre3LL.addView(nombre3_tv);
+            nombre3LL.addView(nombre3_et);
+
+            detalle3_tv = new TextView(getContext().getApplicationContext());
+            detalle3_tv.setText("Detalle: ");
+            detalle3_tv.setTextColor(Color.BLACK);
+
+            detalle3_et = new EditText(getContext().getApplicationContext());
+            detalle3_et.setBackgroundColor(Color.WHITE);
+            detalle3_et.setTextColor(Color.BLACK);
+            detalle3_et.setHeight(80);
+            detalle3_et.setWidth(600);
+
+            detalle3LL.addView(detalle3_tv);
+            detalle3LL.addView(detalle3_et);
+
+            LLmain.addView(nombre3LL);
+            LLmain.addView(detalle3LL);
+
+            cont++;
+        }
+        else
+        {
+            Toast.makeText(this.getActivity().getApplicationContext(), "No se pueden agregar más cursos", Toast.LENGTH_SHORT).show();
+        }
     }
 }
