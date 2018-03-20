@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.VectorEnabledTintResources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,38 @@ public class DatosFragment extends Fragment {
             }
         });
 
+        ((Button)v.findViewById(R.id.modificar_btndatos)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                modificar(idCred, v);
+            }
+        });
+
         return v;
+    }
+
+    public void modificar(Integer idCred, View v)
+    {
+        EditText nombre_et = (EditText)getView().findViewById(R.id.nombre_etdatos);
+        nombre_et.setEnabled(true);
+
+        EditText apellido_et = (EditText)getView().findViewById(R.id.apellido_etdatos);
+        apellido_et.setEnabled(true);
+
+        EditText edad_et = (EditText)getView().findViewById(R.id.edad_etdatos);
+        edad_et.setEnabled(true);
+
+        EditText nacio_et = (EditText)getView().findViewById(R.id.nacio_etdatos);
+        nacio_et.setEnabled(true);
+
+        EditText pcia_et = (EditText)getView().findViewById(R.id.pcia_etdatos);
+        pcia_et.setEnabled(true);
+
+        EditText domi_et = (EditText)getView().findViewById(R.id.domi_etdatos);
+        domi_et.setEnabled(true);
+
+        EditText ecivil_et = (EditText)getView().findViewById(R.id.ecivil_etdatos);
+        ecivil_et.setEnabled(true);
     }
 
     public Boolean comprobar(Integer idCred, View v)
@@ -89,12 +121,25 @@ public class DatosFragment extends Fragment {
             EditText ecivil_et = (EditText) v.findViewById(R.id.ecivil_etdatos);
 
             nombre_et.setText(auxDatos.getNombre().toString());
+            nombre_et.setEnabled(false);
+
             apellido_et.setText(auxDatos.getApellido().toString());
+            apellido_et.setEnabled(false);
+
             edad_et.setText(auxDatos.getEdad().toString());
+            edad_et.setEnabled(false);
+
             nacio_et.setText(auxDatos.getNacionalidad().toString());
+            nacio_et.setEnabled(false);
+
             pcia_et.setText(auxDatos.getProvincia().toString());
+            pcia_et.setEnabled(false);
+
             domi_et.setText(auxDatos.getDomicilio().toString());
+            domi_et.setEnabled(false);
+
             ecivil_et.setText(auxDatos.getEcivil().toString());
+            ecivil_et.setEnabled(false);
         }
         return result;
     }

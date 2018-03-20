@@ -30,7 +30,8 @@
             android:id="@+id/nombre_etcurso"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@color/Blanco"/>
+            android:background="@color/Blanco"
+            android:singleLine="false" />
     </LinearLayout>
 
     <LinearLayout
