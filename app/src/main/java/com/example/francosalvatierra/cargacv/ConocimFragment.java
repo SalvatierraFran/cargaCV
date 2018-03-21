@@ -53,7 +53,7 @@ public class ConocimFragment extends Fragment {
         sp_niveles.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext().getApplicationContext(), items[position], Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext().getApplicationContext(), items[position], Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -89,7 +89,7 @@ public class ConocimFragment extends Fragment {
 
         if(c.moveToFirst())
         {
-            auxConoc = new Conocimientos(c.getInt(0), c.getString(1), c.getString(2));
+            auxConoc = new Conocimientos(c.getInt(0), c.getString(1), c.getInt(2));
             listaConoc.add(auxConoc);
             result = true;
         }while(c.moveToNext());
@@ -99,9 +99,16 @@ public class ConocimFragment extends Fragment {
             TextView nombre_et = (TextView)v.findViewById(R.id.nombre_etconoc);
             Spinner nivel_sp = (Spinner)v.findViewById(R.id.spinner_conoc);
 
+            items = getResources().getStringArray(R.array.lista_niveles);
+
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.lista_niveles, R.layout.support_simple_spinner_dropdown_item);
+
+            nivel_sp.setAdapter(adapter);
+
             for(Integer i = 0; i < listaConoc.size(); i++)
             {
                 nombre_et.setText(listaConoc.get(i).getNombre().toString());
+                nivel_sp.setSelection(listaConoc.get(i).getNivel());
             }
         }
 
@@ -120,7 +127,7 @@ public class ConocimFragment extends Fragment {
         ContentValues values = new ContentValues();
 
         values.put(ConocContract.ConocEntry.CAMPO_NOMBRE, nombre_et.getText().toString());
-        values.put(ConocContract.ConocEntry.CAMPO_NIVEL, nivel_sp.getSelectedItem().toString());
+        values.put(ConocContract.ConocEntry.CAMPO_NIVEL, nivel_sp.getSelectedItemId());
         values.put(ConocContract.ConocEntry.CAMPO_IDCRED, idCred);
 
         Long idResultante = db.insert(ConocContract.ConocEntry.TABLE_NAME, ConocContract.ConocEntry._ID, values);

@@ -9,9 +9,9 @@ import com.example.francosalvatierra.cargacv.ConocimFragment;
 public class Conocimientos {
     private Integer id;
     private String nombre;
-    private String nivel;
+    private Integer nivel;
 
-    public Conocimientos(Integer Id, String Nombre, String Nivel)
+    public Conocimientos(Integer Id, String Nombre, Integer Nivel)
     {
         this.id = Id;
         this.nombre = Nombre;
@@ -35,11 +35,11 @@ public class Conocimientos {
         this.nombre = nombre;
     }
 
-    public String getNivel() {
+    public Integer getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(Integer nivel) {
         this.nivel = nivel;
     }
 }
